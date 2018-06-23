@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign the Guest Book</title>
+    <link rel="stylesheet" href="{% static 'guestbook/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'guestbook/main.css' %}">
+
+
+</head>
+<body>
+
+        
+        <div class="container">
+                
+            <form class="form-signin xet" action="{% url 'sign' %}" method="POST">
+                {% csrf_token %}
+                <h2 class="form-signin-heading">Sign the Guest Book </h2>
+                <div class="form-group">
+                    <label for="inputName">Name</label>
+                    {{form.name}}
+                </div>
+                <div class="">
+                    <label for="comment" class="">Comment:</label>
+                    {{form.comment}}
+                </div><br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign</button>
+                    <a class="" href={% url 'index' %}><< Go Back</a>
+            </form>
+        </div>
+</body>
+</html>
